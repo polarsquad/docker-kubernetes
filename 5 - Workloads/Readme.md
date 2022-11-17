@@ -77,3 +77,45 @@ You'll need to edit `spec.selector.matchLabels`and `spec.template.metadata.label
 existing deployment. Change the container name as well to something else besides nginx. No other changes are necessary since the container uses the same port number.
 
 These labels are the way Kubernetes handles the number of pods that are attached to a deployment. This is also used by services.
+
+## Jobs and Cronjobs
+
+You might want to try your hand at creating a job or cronjob:
+
+```yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pi
+spec:
+  template:
+    spec:
+      containers:
+      - name: pi
+        image: perl:5.34.0
+        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+      restartPolicy: Never
+  backoffLimit: 4
+```
+
+```yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox:1.28
+            imagePullPolicy: IfNotPresent
+            command:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster
+          restartPolicy: OnFailure
+```

@@ -49,8 +49,8 @@ Once you're done, delete the installation.
 
 ### Helm chart creation
 
-Let's create a Helm chart to install an application. There's already one in the repository, you can use it if you want to.
+Let's create a Helm chart to install an application. There's already one in the repository called `demochart`, you can use it if you want to.
 
 You can also create a new template with `helm create [your chart name]` if you want. Helm will automatically create all of the files you'll need and a couple of extra files.
 
-You'll need to figure out what to change. First you'll probably need to find out where you'll specify the image your chart is going to use, then the ingress will need some work.
+You'll need to figure out what to change. First you'll probably need to find out where you'll specify the image your chart is going to use, then the ingress will need some work. Use `polarsquad/hello-world-app:master` as the image.
