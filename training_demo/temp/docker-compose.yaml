@@ -1,0 +1,22 @@
+version: '3'
+services:
+  redis:
+    image: redis
+    networks:
+      - exercise
+  myapp:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      REDIS: redis
+    networks:
+      - exercise
+    volumes:
+      - redis_data:/data
+networks:
+  exercise:
+    name: exercise
+    driver: bridge
+volumes:
+  redis_data:
