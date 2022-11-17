@@ -18,7 +18,7 @@
 
 ## Test the app
 
-`curl tr-tuomas-palosaari-polarsquad-com.k8s.polarsquad.training`
+`curl <your namespace here>.k8s.polarsquad.training`
 
 ## Look at logs
 

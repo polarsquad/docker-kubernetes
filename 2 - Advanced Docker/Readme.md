@@ -22,7 +22,7 @@ You can then run the app with the Redis server created earlier.
 
 Use curl or browser to reach your app at http://localhost:8080/helloworld
 
-Stop your app with `docker stop`.
+Stop your app with `docker stop` and the container name.
 
 ## Docker Compose
 
@@ -53,7 +53,7 @@ volumes:
   redis_data:
 ```
 
-Run `docker-compose up` to build the container and run the stack.
+Run `docker-compose build && docker-compose up` to build the container and run the stack.
 
 You can then reach your app with curl or browser at http://localhost:8080/helloworld
 

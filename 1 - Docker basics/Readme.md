@@ -36,7 +36,7 @@ Run `docker image ls` to see what images are stored locally.
 
 ## Docker volumes
 
-You can use v
+You can use volumes for long term storage of data. 
 
 `docker volume create redis`
 
@@ -44,11 +44,15 @@ You can use v
 
 ## Docker networks
 
+Networking allows you to isolate your containers.
+
 `docker network create -d bridge app`
 
 `docker network ls`
 
 ## Use the network and volume to run a container
+
+Now you can use the volume and the network you created to run Redis with a volume for data storage and network isolation.
 
 `docker run --rm --name redis-server --network app --mount 'type=volume,src=redis,dst=/data' -d redis`
 

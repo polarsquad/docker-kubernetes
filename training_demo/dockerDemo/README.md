@@ -61,4 +61,4 @@ Curl or browser to http://localhost:8080/helloworld
 ## Clean up afterwards
 
 `docker network rm app`
-`docker volume rm redis
+`docker volume rm redis`
