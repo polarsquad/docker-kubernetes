@@ -1,4 +1,4 @@
-# Using registries
+# More on registries
 
 Docker push can be used to upload images. If you have a Docker Hub account you can use that for this and following exercises. Otherwise you can use europe-north1-docker.pkg.dev/tuomaspal-sandbox/training
 
