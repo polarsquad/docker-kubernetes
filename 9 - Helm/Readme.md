@@ -54,3 +54,5 @@ Let's create a Helm chart to install an application. There's already one in the 
 You can also create a new template with `helm create [your chart name]` if you want. Helm will automatically create all of the files you'll need and a couple of extra files.
 
 You'll need to figure out what to change. First you'll probably need to find out where you'll specify the image your chart is going to use, then the ingress will need some work. Use `polarsquad/hello-world-app:master` as the image.
+
+Once you've got the hang of it, try using your Go app as the basis. We won't get into subcharts, but you can use an existing Redis in your namespace that you connect the app to.
