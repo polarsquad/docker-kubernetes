@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo
+  labels:
+    app: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-pod
+  template:
+    metadata:
+      labels:
+        app: demo-pod
+    spec:
+      containers:
+      - image: gcr.io/kubernetes-e2e-test-images/echoserver:2.2
+        name: echo
+        ports:
+        - containerPort: 8080
+        env:
+          - name: REDIS
+            value: redis

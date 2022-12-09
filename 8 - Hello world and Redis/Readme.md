@@ -12,3 +12,6 @@ Tip: Redis uses port 6379 for traffic
 
 Now you'll need to create a deployment and a service for the hello_http application as well. Follow the same guidelines. Start with the deployment first and test the connection to your Redis service. You'll need to specify the Redis DNS name with an environment variable. In the same namespace you can refer to services just with their names. In the general cluster, services' DNS names follow this syntax:
 `my-svc.my-namespace.svc.cluster.local`
+
+
+

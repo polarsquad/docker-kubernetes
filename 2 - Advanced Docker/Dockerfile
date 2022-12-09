@@ -2,14 +2,15 @@ FROM ubuntu:20.04
 
 WORKDIR /opt/myapp
 
-RUN apt-get update
-RUN apt-get install -y python3 python3-pip
-RUN pip3 install --no-cache Flask
+RUN apt-get update && apt-get install -y python3 python3-pip \ 
+&& pip3 install --no-cache Flask \
+&& apt-get remove -y python3-pip \
+&& apt-get autoremove -y \
+&& rm -rf /var/lib/apt/lists/* 
 
-RUN apt-get remove -y python3-pip
-RUN apt-get autoremove -y
-RUN rm -rf /var/lib/apt/lists/*
+RUN groupadd -g 999 appuser && useradd -r -u 999 -g appuser appuser
+USER appuser
 
-COPY app.py .
+COPY --chown=appuser:appuser app.py .
 
 CMD ["python3", "app.py"]

@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: redis
+  name: redis-service
   labels:
-    app: 
+    app: hello-http
 spec:
   selector:
-    app: 
+    app: redis-pod
   ports:
-  - port: 
-    targetPort:
-    protocol: 
+  - port: 6379
+    targetPort: 6379
+    protocol: TCP

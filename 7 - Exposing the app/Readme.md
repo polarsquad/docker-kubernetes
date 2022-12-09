@@ -12,7 +12,7 @@ You'll need to create a new manifest file. Name it service.yaml and copy the fol
 apiVersion: v1
 kind: Service
 metadata:
-  name: demo
+  name: demo-service
   labels:
     app: demo
 spec:
@@ -24,7 +24,7 @@ spec:
     protocol: TCP
 ```
 
-What this is does is map the port 8080 of your app to one service and one port 80. This is then accessible from within your namespace as a service called `demo` and within the cluster as `demo.<your namespace>.svc.cluster.local`. You can try this out by running a curl pod.
+What this is does is map the port 8080 of your app to one service and one port 80. This is then accessible from within your namespace as a service called `demo` and within the cluster as `demo`. You can try this out by running a curl pod.
 
 ## Ingresses
 
@@ -46,7 +46,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: demo
+            name: hello-http-service
             port:
               number: 80
 ```

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-http-app
+  labels:
+    app: hello-http
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-http-pod
+  template:
+    metadata:
+      labels:
+        app: hello-http-pod
+    spec:
+      containers:
+        - name: hello-http-app-container
+          image: europe-north1-docker.pkg.dev/tuomaspal-sandbox/training/tuomas_app:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: REDIS 
+              value: redis-service

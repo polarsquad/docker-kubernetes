@@ -123,3 +123,7 @@ When you view a Pod status using `kubectl get` or `kubectl describe`, you might 
 | Pending | Kubernetes failed to find a node that has enough resources to run your Pod | Either [lower the resource requirements](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) or create more Kubernetes worker nodes. |
 | CreateContainerConfigError | Most commonly, you tried to reference a ConfigMap or a Secret that doesn't exist. | Check the ConfigMaps and Secrets referred in your Deployment, and make sure they exist in Kubernetes. Check for possible typos. |
 | ContainerCreating          | The Pod is still starting up. However, there's a few things that might prevent it from starting up properly. For example, if you try to mount volumes (ConfigMaps, Secrets, disks) that don't exist, your Pod will be stuck in this state. | Check that the volumes the Pod tries to mount exist. |
+
+## Additional reading
+
+https://microsoft.github.io/Threat-Matrix-for-Kubernetes/

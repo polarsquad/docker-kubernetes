@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: redis
   labels:
-    app: redis
+    app: hello-http
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: redis
+      app: redis-pod
   template:
     metadata:
       labels:
-        app: redis
+        app: redis-pod
     spec:
       containers:
       - image: redis:7.0.5

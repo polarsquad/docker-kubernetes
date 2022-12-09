@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-ingress
+  labels:
+    app: demo
+spec:
+  rules:
+  - host: tr-tuomas-palosaari-polarsquad-com.k8s.polarsquad.training
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: demo
+            port:
+              number: 80

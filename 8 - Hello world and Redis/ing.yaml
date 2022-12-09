@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello-world-app-ingress
+  labels:
+    app: hello-world-app
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+  - host: tr-tuomas-palosaari-polarsquad-com.k8s.polarsquad.training
+    http:
+      paths:
+      # - path: /
+      #   pathType: Prefix
+      #   backend:
+      #     service:
+      #       name: hello-http
+      #       port:
+      #         name: http
+      ##
+      ## First path is for the hello go app
+      - path: /hello-app(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: hello-http
+            port:
+              name: http
+      ## This one is for the polar squad hello world app to demonstrate rewrite issues
+      - path: /hello(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: hello-world-app
+            port:
+              name: http
+              

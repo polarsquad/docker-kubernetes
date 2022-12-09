@@ -1,0 +1,23 @@
+version: '3'
+services:
+  redis:
+    image: redis
+    networks:
+      - exercise
+    volumes:
+      - redis_data:/data
+  myapp:
+    image: hello_http:compose
+    build: .
+    ports:
+      - "8081:8080"
+    environment:
+      REDIS: redis
+    networks:
+      - exercise
+networks:
+  exercise:
+    name: exercise
+    driver: bridge
+volumes:
+  redis_data:
